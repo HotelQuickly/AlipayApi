@@ -19,7 +19,7 @@ $configurator->onCompile[] = function ($configurator, $compiler) {
 Add this to your config.neon
 ```yml
 alipayApi:
-	apiBaseUrl: https://sandbox-api-pay.line.me/v1
+	apiBaseUrl: https://mapi.alipay.net/gateway.do
     merchantId: abc
     signKey: abc
     cacertFileName: cacert.pem
