@@ -49,7 +49,6 @@ trait CoreFunction
 		$paraFiltered = $this->paraFilter($params);
 
 		$paraSorted = $this->argSort($paraFiltered);
-		print_r($paraSorted);
 
 		$preStr = $this->buildParams($paraSorted);
 
