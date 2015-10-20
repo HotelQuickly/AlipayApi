@@ -1,0 +1,23 @@
+{
+  "name": "hotel-quickly/alipay-api",
+  "type": "library",
+  "keywords": ["php", "alipay"],
+  "homepage": "http://www.HotelQuickly.com",
+  "authors": [
+    {
+      "name": "Jakapun Kehachindawat",
+      "email": "jakapun.kehachindawat@hotelquickly.com"
+    }
+  ],
+  "require": {
+    "nette/nette": "2.0.*"
+  },
+  "require-dev": {
+    "nette/tester": "~1.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "HQ\\AlipayApi\\": "src/"
+    }
+  }
+}
