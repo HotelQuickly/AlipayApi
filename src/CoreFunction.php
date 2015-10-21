@@ -1,6 +1,6 @@
 <?php
 
-namespace HQ\Alipay;
+namespace HQ\AlipayApi;
 
 /**
  * Class CoreFunction

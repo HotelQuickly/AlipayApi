@@ -1,29 +1,19 @@
 <?php
 
-namespace Tests;
+namespace Tests\Request;
 
 use HQ\AlipayApi\Request\SingleRefund;
 use HQ\AlipayApi\RequestFactory;
-use Nette;
-use Tester;
-use Tester\Assert;
+use Tests\BaseTestCase;
 
-$container = require __DIR__ . '/../bootstrap.php';
-require __DIR__ . '/../BaseTestCase.php';
+require_once dirname(__DIR__).'/BaseTestCase.php';
+
 /**
  * @author Jakapun Kehachindawat <jakapun.kehachindawat@hotelquickly.com>
  */
 class SingleRefundTest extends BaseTestCase
 {
-	/** @var  \HQ\AlipayApi\Manager */
-	private $alipayManager;
-
-	public function setUp()
-	{
-		$this->alipayManager = $this->container->getByType('HQ\AlipayApi\Manager');
-	}
-
-	public function testSingleTransactionQuery()
+	public function testSingleRefund()
 	{
 		$response = $this->alipayManager->send(RequestFactory::SINGLE_REFUND, function(SingleRefund $request) {
 			$request->setParam('out_trade_no', 'abc1234')
@@ -34,10 +24,7 @@ class SingleRefundTest extends BaseTestCase
 				->setParam('reason', 'refund test');
 		});
 
-		Assert::same('F', $response->is_success);
-		Assert::same('PURCHASE_TRADE_NOT_EXIST', $response->error);
+		$this->assertSame('F', $response->is_success);
+		$this->assertSame('PURCHASE_TRADE_NOT_EXIST', $response->error);
 	}
 }
-
-$test = new SingleRefundTest($container);
-$test->run();

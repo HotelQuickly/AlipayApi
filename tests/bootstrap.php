@@ -1,18 +1,7 @@
 <?php
-require __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-Tester\Environment::setup();
+require __DIR__ . '/config.php';
 
-$configurator = new Nette\Configurator;
-$configurator->setDebugMode(FALSE);
-$configurator->setTempDirectory(__DIR__ . '/../temp');
-$configurator->createRobotLoader()
-	->addDirectory(__DIR__ . '/../src')
-	->register();
-$configurator->addConfig(__DIR__ . '/config/config.neon', false);
-
-$configurator->onCompile[] = function ($configurator, $compiler) {
-	$compiler->addExtension('alipayApi', new \HQ\AlipayApi\AlipayApiExtension());
-};
-
-return $configurator->createContainer();
+$requestFactory = new \HQ\AlipayApi\RequestFactory($config['apiBaseUrl'], $config['merchantId'], $config['signKey']);
+$alipayManager = new \HQ\AlipayApi\Manager($config['cacertFileName'], $requestFactory);

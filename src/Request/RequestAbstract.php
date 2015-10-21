@@ -1,7 +1,7 @@
 <?php
 
 namespace HQ\AlipayApi\Request;
-use HQ\Alipay\CoreFunction;
+use HQ\AlipayApi\CoreFunction;
 
 /**
  * Class RequestAbstract

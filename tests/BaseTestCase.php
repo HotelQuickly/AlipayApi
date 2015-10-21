@@ -1,24 +1,18 @@
 <?php
 namespace Tests;
 
-use Nette,
-	Tester;
-
 /**
  * @author Jakapun Kehachindawat <jakapun.kehachindawat@gmail.com>
  */
-abstract class BaseTestCase extends Tester\TestCase
+abstract class BaseTestCase extends \PHPUnit_Framework_TestCase
 {
-	/** @var \Nette\DI\Container */
-	protected $container;
+	/** @var \HQ\AlipayApi\Manager */
+	protected $alipayManager;
 
-	public function __construct(Nette\DI\Container $container = null)
+	public function setUp()
 	{
-		$this->container = $container;
-	}
-	protected function setUp()
-	{
+		require dirname(__DIR__) . '/tests/bootstrap.php';
 
+		$this->alipayManager = $alipayManager;
 	}
-
 }

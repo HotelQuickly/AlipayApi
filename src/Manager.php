@@ -55,7 +55,7 @@ class Manager
 		// validate request
 		$request->validateRequest();
 
-		$cacertUrl = getcwd().'/../../cacert/'.$this->cacertFileName;
+		$cacertUrl = __DIR__.'/../cacert/'.$this->cacertFileName;
 		$apiResponse = $this->sender->send($request, $cacertUrl);
 		return $request->handleResponse($apiResponse);
 	}

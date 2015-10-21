@@ -12,6 +12,7 @@ class RequestFactory
 	// These const are Request Names
 	const SINGLE_TRANSACTION_QUERY = 'SingleTransactionQuery';
 	const SINGLE_REFUND = 'SingleRefund';
+	const NOTIFY_VERIFY = 'NotifyVerify';
 
 	private $apiBaseUrl;
 	private $merchantId;

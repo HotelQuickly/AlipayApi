@@ -2,6 +2,10 @@ language: php
 php:
   - 5.4
 
+addons:
+  hosts:
+    - mapi.alipay.net
+
 before_script:
   # create temp dir
   - mkdir -p temp
