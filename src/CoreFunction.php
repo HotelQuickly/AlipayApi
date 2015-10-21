@@ -23,11 +23,11 @@ trait CoreFunction
 		return $keys;
 	}
 
-	public function buildParams(array $params)
+	public function buildParams(array $params, $urlEncodeNeeded = false)
 	{
 		$string = '';
 		foreach ($params as $k=>$v) {
-			$string .= $k.'='.$v.'&';
+			$string .= $k.'='.($urlEncodeNeeded ? urlencode($v) : $v).'&';
 		}
 
 		// remove escape characters if any

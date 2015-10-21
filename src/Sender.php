@@ -20,7 +20,7 @@ class Sender
 		if ($request->getMethod() === RequestAbstract::METHOD_POST) {
 			$response = $this->sendPOST($url, $cacertUrl, json_encode($request->getParams()));
 		} elseif ($request->getMethod() === RequestAbstract::METHOD_GET) {
-			$response = $this->sendGET($url, $cacertUrl, str_replace(' ','+',$request->buildParams($request->getParams())));
+			$response = $this->sendGET($url, $cacertUrl, $request->buildParams($request->getParams(), true));
 		}
 
 		return $response;

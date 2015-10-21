@@ -4,25 +4,18 @@
 
 
 ### Installation
-1) Add this repository to composer.json, or run:
+Add this repository to composer.json, or run:
 ```sh
 $ composer require hotel-quickly/alipay-api:@dev
 ```
-2) Register extension in your bootstrap.php
-```php
-$configurator->onCompile[] = function ($configurator, $compiler) {
-    $compiler->addExtension('alipayApi', new \HQ\AlipayApi\AlipayApiExtension());
-};
-```
 
 ### Configuration
-Add this to your config.neon
-```yml
-alipayApi:
-	apiBaseUrl: https://mapi.alipay.net/gateway.do
-    merchantId: abc
-    signKey: abc
-    cacertFileName: cacert.pem
+These are config parameters to be passed to HQ\AlipayApi\Manager constructor
+```php
+apiBaseUrl
+merchantId
+signKey
+cacertFileName
 ```
 
 ### Usage
@@ -42,7 +35,7 @@ $response = $this->alipayManager->send(RequestFactory::SINGLE_TRANSACTION_QUERY,
 
 ### How to test
 ```sh
-$ ./vendor/bin/tester tests/
+$ ./vendor/bin/phpunit --colors=auto
 ```
 
 ### The MIT License (MIT)

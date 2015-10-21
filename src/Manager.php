@@ -19,16 +19,20 @@ class Manager
 	private $requestFactory;
 
 	/**
+	 * @param $apiBaseUrl
+	 * @param $merchantId
+	 * @param $signKey
 	 * @param $cacertFileName
-	 * @param RequestFactory $requestFactory
 	 */
 	public function __construct(
-		$cacertFileName,
-		RequestFactory $requestFactory
+		$apiBaseUrl,
+		$merchantId,
+		$signKey,
+		$cacertFileName
 	) {
 		$this->sender = new Sender();
+		$this->requestFactory = new RequestFactory($apiBaseUrl, $merchantId, $signKey);
 		$this->cacertFileName = $cacertFileName;
-		$this->requestFactory = $requestFactory;
 	}
 
 	/**

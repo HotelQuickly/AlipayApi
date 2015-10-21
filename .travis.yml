@@ -7,6 +7,8 @@ addons:
     - mapi.alipay.net
 
 before_script:
+  - echo "115.124.16.59 mapi.alipay.net" >> /etc/hosts
+
   # create temp dir
   - mkdir -p temp
   - cp tests/config/config.template.neon tests/config/config.neon
