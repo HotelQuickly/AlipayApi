@@ -4,7 +4,7 @@
 
 
 ### Installation
-Add this repository to composer.json, or run:
+Add this repository to composer.json, or run :
 ```sh
 $ composer require hotel-quickly/alipay-api:@dev
 ```
